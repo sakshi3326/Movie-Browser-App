@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, Image, StyleSheet } from 'react-native';
 import { getNowPlayingMovies } from '../services/movieService';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const NowPlayingScreen = () => {
   const [movies, setMovies] = useState([]);
@@ -14,7 +15,10 @@ const NowPlayingScreen = () => {
   }, []);
 
   const renderItem = ({ item }) => (
-    <View style={styles.movieItem}>
+    <TouchableOpacity 
+    onPress={() => navigation.navigate('MovieDetail', { movie: item })}
+    >
+        <View style={styles.movieItem}>
       <Image
         source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
         style={styles.poster}
@@ -23,6 +27,7 @@ const NowPlayingScreen = () => {
       <Text style={styles.releaseDate}>{item.release_date}</Text>
       <Text style={styles.rating}>Rating: {item.vote_average}</Text>
     </View>
+    </TouchableOpacity>
   );
 
   return (

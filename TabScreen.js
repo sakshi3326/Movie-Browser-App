@@ -1,12 +1,17 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const TabScreen = ({ data }) => {
   const renderItem = ({ item }) => (
-    <View style={styles.item}>
+    <TouchableOpacity 
+    onPress={() => navigation.navigate('MovieDetail', { movie: item })}
+    >
+      <View style={styles.item}>
       <Text style={styles.key}>{item.key}</Text>
       <Text style={styles.value}>{item.value}</Text>
     </View>
+    </TouchableOpacity>
   );
 
   const renderContent = () => {
