@@ -1,3 +1,4 @@
+// src/navigation/AppNavigator.js
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -7,7 +8,7 @@ import NowPlayingScreen from '../screens/NowPlayingScreen';
 import PopularScreen from '../screens/PopularScreen';
 import TopRatedScreen from '../screens/TopRatedScreen';
 import UpcomingScreen from '../screens/UpcomingScreen';
-
+import FavoritesScreen from '../context/FavoritesScreen';
 const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
@@ -25,6 +26,8 @@ export default function AppNavigator() {
               iconName = focused ? 'star' : 'star-outline';
             } else if (route.name === 'Upcoming') {
               iconName = focused ? 'calendar' : 'calendar-outline';
+            } else if (route.name === 'Favorites') {
+              iconName = focused ? 'heart' : 'heart-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -34,6 +37,7 @@ export default function AppNavigator() {
         <Tab.Screen name="Popular" component={PopularScreen} />
         <Tab.Screen name="Top Rated" component={TopRatedScreen} />
         <Tab.Screen name="Upcoming" component={UpcomingScreen} />
+        <Tab.Screen name="Favorites" component={FavoritesScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

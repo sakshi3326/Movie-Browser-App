@@ -1,19 +1,12 @@
-// src/screens/TopRatedScreen.js
-import React, { useEffect, useState } from 'react';
+// src/screens/FavoritesScreen.js
+import React, { useContext } from 'react';
 import { FlatList, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getTopRatedMovies } from '../services/movieServices';
-const TopRatedScreen = () => {
-  const [movies, setMovies] = useState([]);
-  const navigation = useNavigation();
+import { FavoritesContext } from '../context/FavoritesContext';
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getTopRatedMovies();
-      setMovies(data);
-    };
-    fetchData();
-  }, []);
+const FavoritesScreen = () => {
+  const { favorites } = useContext(FavoritesContext);
+  const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
@@ -33,7 +26,7 @@ const TopRatedScreen = () => {
 
   return (
     <FlatList
-      data={movies}
+      data={favorites}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
     />
@@ -64,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TopRatedScreen;
+export default FavoritesScreen;

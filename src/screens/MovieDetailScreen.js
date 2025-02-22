@@ -1,9 +1,20 @@
 // src/screens/MovieDetailScreen.js
-import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, Image, ScrollView, StyleSheet, Button } from 'react-native';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 const MovieDetailScreen = ({ route }) => {
   const { movie } = route.params;
+  const { favorites, addFavorite, removeFavorite } = useContext(FavoritesContext);
+  const isFavorite = favorites.some((fav) => fav.id === movie.id);
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      removeFavorite(movie.id);
+    } else {
+      addFavorite(movie);
+    }
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -15,6 +26,10 @@ const MovieDetailScreen = ({ route }) => {
       <Text style={styles.releaseDate}>Release Date: {movie.release_date}</Text>
       <Text style={styles.rating}>Rating: {movie.vote_average}</Text>
       <Text style={styles.overview}>{movie.overview}</Text>
+      <Button
+        title={isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+        onPress={toggleFavorite}
+      />
     </ScrollView>
   );
 };

@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getUpcomingMovies } from '../services/movieService';
-
+import { getUpcomingMovies } from '../services/movieServices';
 const UpcomingScreen = () => {
   const [movies, setMovies] = useState([]);
   const navigation = useNavigation();

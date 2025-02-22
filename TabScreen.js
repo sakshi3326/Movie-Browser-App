@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { TouchableOpacity } from 'react-native';
 const TabScreen = ({ data }) => {
   const renderItem = ({ item }) => (
     <TouchableOpacity 

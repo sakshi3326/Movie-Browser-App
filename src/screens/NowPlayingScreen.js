@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, Image, StyleSheet } from 'react-native';
-import { getNowPlayingMovies } from '../services/movieService';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { getNowPlayingMovies } from '../services/movieServices';
+import { TouchableOpacity } from 'react-native';
 const NowPlayingScreen = () => {
   const [movies, setMovies] = useState([]);
 

@@ -1,16 +1,12 @@
 // App.js
-import 'react-native-gesture-handler';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import MainTabScreen from './src/screens/MainTabScreen';
-import { Text } from 'react-native';
+import { FavoritesProvider } from './src/context/FavoritesContext'; // For favorites feature
+import AppNavigator from './src/navigation/AppNavigator';
 
-const App = () => {
-  
+export default function App() {
   return (
-    <Text>hello</Text>
-    
+    <FavoritesProvider>
+      <AppNavigator />
+    </FavoritesProvider>
   );
-};
-
-export default App;
+}
