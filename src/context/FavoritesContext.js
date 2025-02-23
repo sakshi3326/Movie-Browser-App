@@ -1,4 +1,3 @@
-// src/context/FavoritesContext.js
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -7,7 +6,6 @@ export const FavoritesContext = createContext();
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
-  // Load favorites from AsyncStorage when the app starts
   useEffect(() => {
     const loadFavorites = async () => {
       try {
@@ -22,7 +20,6 @@ export const FavoritesProvider = ({ children }) => {
     loadFavorites();
   }, []);
 
-  // Save favorites to AsyncStorage whenever the list changes
   useEffect(() => {
     const saveFavorites = async () => {
       try {

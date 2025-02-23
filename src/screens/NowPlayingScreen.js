@@ -47,7 +47,7 @@ const NowPlayingScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212', // Dark background
+    backgroundColor: '#121212', 
   },
   list: {
     padding: 10,
@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 15,
     overflow: 'hidden',
-    elevation: 5, // Android shadow
-    shadowColor: '#000', // iOS shadow
+    elevation: 5, 
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   rating: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#FFD700', // Gold color for ratings
+    color: '#FFD700', 
   },
 });
 

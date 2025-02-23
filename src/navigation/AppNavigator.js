@@ -1,4 +1,3 @@
-// src/navigation/AppNavigator.js
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -33,16 +32,16 @@ export default function AppNavigator() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: darkTheme.colors.tabBarActiveTintColor, // Active tab color
-          tabBarInactiveTintColor: darkTheme.colors.tabBarInactiveTintColor, // Inactive tab color
+          tabBarActiveTintColor: darkTheme.colors.tabBarActiveTintColor, 
+          tabBarInactiveTintColor: darkTheme.colors.tabBarInactiveTintColor,
           tabBarStyle: {
-            backgroundColor: darkTheme.colors.tabBarBackground, // Tab bar background
-            borderTopWidth: 0, // Remove the top border
+            backgroundColor: darkTheme.colors.tabBarBackground, 
+            borderTopWidth: 0, 
           },
           headerStyle: {
-            backgroundColor: darkTheme.colors.surface, // Header background
+            backgroundColor: darkTheme.colors.surface, 
           },
-          headerTintColor: darkTheme.colors.text, // Header text color
+          headerTintColor: darkTheme.colors.text, 
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -76,7 +75,7 @@ export default function AppNavigator() {
         <Tab.Screen
           name="MovieDetail"
           component={MovieDetailScreen}
-          options={{ tabBarButton: () => null }} // Hide from the tab bar
+          options={{ tabBarButton: () => null }} 
         />
       </Tab.Navigator>
     </NavigationContainer>

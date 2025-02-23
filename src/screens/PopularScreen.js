@@ -3,7 +3,7 @@ import { FlatList, View, Text, Image, StyleSheet, TouchableOpacity, Dimensions }
 import { useNavigation } from '@react-navigation/native';
 import { getPopularMovies } from '../services/movieServices';
 
-const { width } = Dimensions.get('window'); // Get screen width
+const { width } = Dimensions.get('window'); 
 
 const PopularScreen = () => {
   const [movies, setMovies] = useState([]);
@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   card: {
-    width: width * 0.6, // 60% of screen width
+    width: width * 0.6, 
     marginRight: 15,
     borderRadius: 12,
     overflow: 'hidden',
-    backgroundColor: '#222', // Dark card background
+    backgroundColor: '#222', 
   },
   poster: {
     width: '100%',
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   ratingBadge: {
-    backgroundColor: '#FFD700', // Gold color
+    backgroundColor: '#FFD700', 
     borderRadius: 20,
     paddingVertical: 4,
     paddingHorizontal: 10,

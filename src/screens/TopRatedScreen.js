@@ -46,7 +46,7 @@ const TopRatedScreen = () => {
     }).start(() => {
       position.setValue({ x: 0, y: 0 });
       
-      setMovies((prevMovies) => prevMovies.slice(1)); // Remove first movie
+      setMovies((prevMovies) => prevMovies.slice(1)); 
     });
   };
 
