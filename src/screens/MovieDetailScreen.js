@@ -1,4 +1,3 @@
-// src/screens/MovieDetailScreen.js
 import React, { useContext } from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, Button } from 'react-native';
 import { FavoritesContext } from '../context/FavoritesContext';

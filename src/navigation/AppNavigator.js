@@ -9,6 +9,8 @@ import PopularScreen from '../screens/PopularScreen';
 import TopRatedScreen from '../screens/TopRatedScreen';
 import UpcomingScreen from '../screens/UpcomingScreen';
 import FavoritesScreen from '../context/FavoritesScreen';
+import MovieDetailScreen from '../screens/MovieDetailScreen';
+
 const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
@@ -38,6 +40,11 @@ export default function AppNavigator() {
         <Tab.Screen name="Top Rated" component={TopRatedScreen} />
         <Tab.Screen name="Upcoming" component={UpcomingScreen} />
         <Tab.Screen name="Favorites" component={FavoritesScreen} />
+        <Tab.Screen
+          name="MovieDetail"
+          component={MovieDetailScreen}
+          options={{ tabBarButton: () => null }} // Hide from the tab bar
+        />      
       </Tab.Navigator>
     </NavigationContainer>
   );

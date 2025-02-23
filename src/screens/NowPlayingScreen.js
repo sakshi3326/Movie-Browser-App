@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, Image, StyleSheet } from 'react-native';
 import { getNowPlayingMovies } from '../services/movieServices';
 import { TouchableOpacity } from 'react-native';
-const NowPlayingScreen = () => {
+import { useNavigation } from '@react-navigation/native';
+
+const NowPlayingScreen = ({navigation}) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
