@@ -29,6 +29,11 @@ const FavoritesScreen = () => {
       data={favorites}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
+      ListEmptyComponent={
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>No favorites added yet.</Text>
+        </View>
+      }
     />
   );
 };
@@ -53,6 +58,16 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontSize: 14,
+    color: '#666',
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
+  },
+  emptyText: {
+    fontSize: 16,
     color: '#666',
   },
 });

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { darkTheme } from '../theme';
 import NowPlayingScreen from '../screens/NowPlayingScreen';
 import PopularScreen from '../screens/PopularScreen';
 import TopRatedScreen from '../screens/TopRatedScreen';
@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={darkTheme}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -33,18 +33,51 @@ export default function AppNavigator() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          tabBarActiveTintColor: darkTheme.colors.tabBarActiveTintColor, // Active tab color
+          tabBarInactiveTintColor: darkTheme.colors.tabBarInactiveTintColor, // Inactive tab color
+          tabBarStyle: {
+            backgroundColor: darkTheme.colors.tabBarBackground, // Tab bar background
+            borderTopWidth: 0, // Remove the top border
+          },
+          headerStyle: {
+            backgroundColor: darkTheme.colors.surface, // Header background
+          },
+          headerTintColor: darkTheme.colors.text, // Header text color
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         })}
       >
-        <Tab.Screen name="Now Playing" component={NowPlayingScreen} />
-        <Tab.Screen name="Popular" component={PopularScreen} />
-        <Tab.Screen name="Top Rated" component={TopRatedScreen} />
-        <Tab.Screen name="Upcoming" component={UpcomingScreen} />
-        <Tab.Screen name="Favorites" component={FavoritesScreen} />
+        <Tab.Screen
+          name="Now Playing"
+          component={NowPlayingScreen}
+          options={{ title: 'Now Playing' }}
+        />
+        <Tab.Screen
+          name="Popular"
+          component={PopularScreen}
+          options={{ title: 'Popular' }}
+        />
+        <Tab.Screen
+          name="Top Rated"
+          component={TopRatedScreen}
+          options={{ title: 'Top Rated' }}
+        />
+        <Tab.Screen
+          name="Upcoming"
+          component={UpcomingScreen}
+          options={{ title: 'Upcoming' }}
+        />
+        <Tab.Screen
+          name="Favorites"
+          component={FavoritesScreen}
+          options={{ title: 'Favorites' }}
+        />
         <Tab.Screen
           name="MovieDetail"
           component={MovieDetailScreen}
           options={{ tabBarButton: () => null }} // Hide from the tab bar
-        />      
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
